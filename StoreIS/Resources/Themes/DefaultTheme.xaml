@@ -19,4 +19,8 @@
         <Setter Property="HorizontalAlignment" Value="Left"></Setter>
         <Setter Property="VerticalAlignment" Value="Top"></Setter>
     </Style>
+    <Style TargetType="{x:Type Window}" x:Key="windowStyle">
+        <Setter Property="Background" Value="#ffffff"></Setter>
+        <Setter Property="FontFamily" Value="Times New Roman"></Setter>
+    </Style>
 </ResourceDictionary>

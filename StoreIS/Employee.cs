@@ -22,6 +22,8 @@ namespace StoreIS
         public Nullable<System.DateTime> Birthday { get; set; }
         public Nullable<int> DepartamentId { get; set; }
         public Nullable<int> PostId { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
     
         public virtual Departament Departament { get; set; }
         public virtual Post Post { get; set; }

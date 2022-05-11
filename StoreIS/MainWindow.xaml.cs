@@ -24,5 +24,24 @@ namespace StoreIS
         {
             InitializeComponent();
         }
+
+        private void Button_Auth_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tb_Login.Text))
+            {
+                if(!String.IsNullOrEmpty(pb_Password.Password))
+                {
+                    IQueryable<Employee> employee_list = DataBase.GetContext().Employee.Where(p => p.Login == tb_Login.Text && p.Password == pb_Password.Password);
+                    if (employee_list.Count() == 1)
+                    {
+                        MessageBox.Show("Добро пожаловать, " + employee_list.First().Name);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверный логин или пароль");
+                    }
+                }
+            }
+        }
     }
 }
