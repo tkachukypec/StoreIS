@@ -9,7 +9,7 @@ namespace StoreIS
     class DataBase
     {
         private static Entities _context;
-        public static Entities GetEntities()
+        public static Entities GetContext()
         {
             if (_context == null)
                 _context = new Entities();
