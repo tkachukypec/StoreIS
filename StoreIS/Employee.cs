@@ -24,6 +24,7 @@ namespace StoreIS
         public Nullable<int> PostId { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public string Image { get; set; }
     
         public virtual Departament Departament { get; set; }
         public virtual Post Post { get; set; }

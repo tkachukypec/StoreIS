@@ -27,6 +27,7 @@
           <Property Name="PostId" Type="int" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
@@ -41,6 +42,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountAccess" Type="int" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -246,6 +248,7 @@
           <NavigationProperty Name="Post" Relationship="Self.FK_Employee_Post" FromRole="Employee" ToRole="Post" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
@@ -262,6 +265,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Post" FromRole="Post" ToRole="Employee" />
+          <Property Name="AccountAccess" Type="Int32" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -424,6 +428,7 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="ip220Model.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -448,6 +453,7 @@
           <EntitySetMapping Name="Post">
             <EntityTypeMapping TypeName="ip220Model.Post">
               <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="AccountAccess" ColumnName="AccountAccess" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
