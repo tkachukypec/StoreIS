@@ -34,7 +34,12 @@ namespace StoreIS
                     IQueryable<Employee> employee_list = DataBase.GetContext().Employee.Where(p => p.Login == tb_Login.Text && p.Password == pb_Password.Password);
                     if (employee_list.Count() == 1)
                     {
-                        MessageBox.Show("Добро пожаловать, " + employee_list.First().Name);
+                        Employee employee = employee_list.First();
+                        MessageBox.Show("Добро пожаловать, " + employee.Name);
+                        Window1 window = new Window1(employee);
+                        window.Owner = this;
+                        window.Show();
+                        this.Hide();
                     }
                     else
                     {
