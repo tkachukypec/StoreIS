@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Stud421\Desktop\StoreIS\StoreIS\App.xaml
-2609902148
+4-906152012
 21750853300
-20-1488273891
+24736706682
 18721954679
-MainWindow.xaml;Resources\Themes\DefaultTheme.xaml;
+MainWindow.xaml;pages\mainWindowPages\Page1.xaml;Resources\Themes\DefaultTheme.xaml;Window1.xaml;
 
-True
+False
 
