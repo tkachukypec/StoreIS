@@ -35,7 +35,8 @@
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
-                    <TextBlock Foreground="White" FontSize="12" Margin="0,2,0,0" FontWeight="Bold"></TextBlock>
+                    <TextBlock Foreground="White" FontSize="12" Margin="0,2,0,0" FontFamily="Roboto"
+                               FontWeight="Bold" Text="{Binding Employee.Post.Name}"></TextBlock>
                 </StackPanel>
                 <Button Width="40" Style="{StaticResource buttonExitStyle}"></Button>
             </StackPanel>

@@ -14,7 +14,7 @@ namespace StoreIS.views
     {
         private void PropertyChange(string property) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         public event PropertyChangedEventHandler PropertyChanged;
-        public Employee employee { get; private set; }
+        public Employee Employee { get; private set; }
         public ObservableCollection<Page> PageCollection { get; private set; }
         private Page _currentPage;
         public Page CurrentPage
@@ -31,7 +31,7 @@ namespace StoreIS.views
         }
         public MainWindowViewModel(Employee _employee)
         {
-            employee = _employee;
+            Employee = _employee;
             PageCollection = new ObservableCollection<Page>();
             PageCollection.Add(new Page1());
             /*if(employee.PostId != 1)
