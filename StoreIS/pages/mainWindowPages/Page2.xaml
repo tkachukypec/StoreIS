@@ -11,6 +11,18 @@
       Title="Каталог продуктов">
 
     <Grid>
+        <StackPanel Orientation="Vertical" Width="200" Margin="10,150,0,0" HorizontalAlignment="Left">
+            <Expander IsExpanded="True" Header="Категории">
+                <ListBox ItemsSource="{Binding GroupFilters,Mode=OneWay}" SelectionMode="Extended" BorderThickness="0" Background="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Checked="Filter_Checked" Unchecked="Filter_UnChecked" Content="{Binding Group.Name}"
+                                      IsChecked="{Binding IsChecked}"></CheckBox>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Expander>
+        </StackPanel>
         <TextBox BorderBrush="#10101a" VerticalContentAlignment="Center"
                  Style="{StaticResource searchTextBoxStyle}" FontSize="16" TextChanged="SearchTextBox_TextChanged"
                  Text="{Binding SearchString,UpdateSourceTrigger=PropertyChanged}"

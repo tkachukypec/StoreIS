@@ -28,5 +28,11 @@ namespace StoreIS.pages.mainWindowPages
             DataContext = _catalogBooksViewModel;
         }
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) => _catalogBooksViewModel.UpdateProductsList();
+
+        private void Filter_Checked(object sender, RoutedEventArgs e) => _catalogBooksViewModel.UpdateProductsList();
+        private void Filter_UnChecked(object sender, RoutedEventArgs e)
+        {
+            _catalogBooksViewModel.UpdateProductsList();
+        }
     }
 }

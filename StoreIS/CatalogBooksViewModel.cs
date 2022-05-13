@@ -23,9 +23,11 @@ namespace StoreIS
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<Product> Products { get; set; }
+        public ObservableCollection<GroupFilter> GroupFilters { get; private set; }
         public CatalogBooksViewModel()
         {
             Products = new ObservableCollection<Product>();
+            GroupFilters = new ObservableCollection<GroupFilter>(DataBase.GetContext().Group.Select(p => new GroupFilter() { Group = p }));
             UpdateProductsList();
         }
         public string SearchString { get; set; } = "";
@@ -34,10 +36,15 @@ namespace StoreIS
             try
             {
                 Products.Clear();
+                List<Group> groups = GroupFilters.Where(p => p.IsChecked).Select(p => p.Group).ToList();
                 List<Product> products = DataBase.GetContext().Product.ToList();
                 if(!String.IsNullOrWhiteSpace(SearchString))
                 {
                     products = products.Where(p => p.Name.Contains(SearchString.Trim())).ToList();
+                }
+                if(groups.Count != 0)
+                {
+                    products = products.Where(p => groups.Contains(p.Group)).ToList();
                 }
                 if(products.Count != 0)
                 {
