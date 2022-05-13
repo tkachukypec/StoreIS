@@ -34,6 +34,7 @@ namespace StoreIS.views
             Employee = _employee;
             PageCollection = new ObservableCollection<Page>();
             PageCollection.Add(new Page1());
+            PageCollection.Add(new Page2());
             /*if(employee.PostId != 1)
             {
                 PageCollection.Add(new Page2());

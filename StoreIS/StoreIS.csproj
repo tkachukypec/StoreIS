@@ -67,6 +67,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CatalogBooksViewModel.cs" />
+    <Compile Include="converters\ListSuppliersToStringConverter.cs" />
     <Compile Include="converters\RelativeToFullPathConverter.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="Departament.cs">
@@ -85,6 +87,9 @@
     </Compile>
     <Compile Include="pages\mainWindowPages\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\mainWindowPages\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Post.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -115,6 +120,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="pages\mainWindowPages\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\mainWindowPages\Page2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
