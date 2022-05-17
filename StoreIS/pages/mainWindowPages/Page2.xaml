@@ -11,6 +11,7 @@
       Title="Каталог продуктов">
 
     <Grid>
+
         <StackPanel Orientation="Vertical" Width="200" Margin="10,150,0,0" HorizontalAlignment="Left">
             <Expander IsExpanded="True" Header="Категории">
                 <ListBox ItemsSource="{Binding GroupFilters,Mode=OneWay}" SelectionMode="Extended" BorderThickness="0" Background="Transparent">
@@ -22,12 +23,33 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </Expander>
+            <Button Margin="20,5,20,0" Style="{StaticResource resetFiltersButtonStyle}"
+                    Background="Transparent" BorderThickness="0" Foreground="#7d7d7d"
+                    Click="ResetFilterButton_Click" Visibility="{Binding ResetFilterActive}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="13" Margin="0,0,15,0"></TextBlock>
+                    <TextBlock FontSize="15" TextDecorations="Underline">Сбросить фильтры</TextBlock>
+                </StackPanel>
+            </Button>
+            <ComboBox SelectionChanged="SortComboBox_SelectionChanged" SelectedIndex="{Binding SelectedSort}" Margin="0,20">
+                <ComboBoxItem>Название (А-Я)</ComboBoxItem>
+                <ComboBoxItem>Название (Я-А)</ComboBoxItem>
+                <ComboBoxItem>Цена (возрастание)</ComboBoxItem>
+                <ComboBoxItem>Цена (убывание)</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
         <TextBox BorderBrush="#10101a" VerticalContentAlignment="Center"
                  Style="{StaticResource searchTextBoxStyle}" FontSize="16" TextChanged="SearchTextBox_TextChanged"
                  Text="{Binding SearchString,UpdateSourceTrigger=PropertyChanged}"
                  Margin="220,30,30,0" VerticalAlignment="Top" Height="35"></TextBox>
-        
+        <TextBlock Foreground="#7d7d7d" Margin="220,75,30,0" VerticalAlignment="Top">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="Результат поиска: {0} из {1} пр.">
+                    <Binding Path="CurrentCountElements"></Binding>
+                    <Binding Path="CountAllElements"></Binding>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Roboto" FontSize="25" Margin="30" Text="{Binding ElementName=window,Path=Title}"></TextBlock>
         <TabControl BorderThickness="0" Margin="220,100,35,35">
             <TabItem x:Name="_ti">

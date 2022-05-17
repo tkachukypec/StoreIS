@@ -32,7 +32,14 @@ namespace StoreIS.pages.mainWindowPages
         private void Filter_Checked(object sender, RoutedEventArgs e) => _catalogBooksViewModel.UpdateProductsList();
         private void Filter_UnChecked(object sender, RoutedEventArgs e)
         {
-            _catalogBooksViewModel.UpdateProductsList();
+            if(_catalogBooksViewModel.ResetFilterActive == Visibility.Visible)
+            {
+                _catalogBooksViewModel.UpdateProductsList();
+            }
         }
+
+        private void ResetFilterButton_Click(object sender, RoutedEventArgs e) => _catalogBooksViewModel.ResetFilters();
+
+        private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => _catalogBooksViewModel.UpdateProductsList();
     }
 }
